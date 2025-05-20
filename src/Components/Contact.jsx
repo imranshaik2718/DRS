@@ -8,6 +8,7 @@ function Contact() {
           <a
             href="#"
             target="_blank"
+            id='Contact'
             class=" font-semibold flex items-center justify-center gap-2 text-[30px] border-gray-600 hover:text-gray-300 transition  my-5"
           >
             Visit My Channel

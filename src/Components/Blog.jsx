@@ -1,10 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
+
+// Main slideshow images
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
 import img3 from "../assets/images/img3.jpg";
 import img4 from "../assets/images/img4.jpg";
 import img5 from "../assets/images/img5.jpg";
 import img6 from "../assets/images/img6.jpg";
+
+// Zigzag images (3 per slide)
+import zip1 from "../assets/images/vlog/1st.jpg";
+import zip2 from "../assets/images/vlog/2nd.jpg";
+import zip3 from "../assets/images/vlog/3rd.jpg";
+import zip4 from "../assets/images/vlog/4th.jpg";
+import zip5 from "../assets/images/vlog/5th.jpg";
+import zip6 from "../assets/images/vlog/6th.jpg";
+import zip7 from "../assets/images/vlog/7th.jpg";
+import zip8 from "../assets/images/vlog/8th.jpg";
+import zip9 from "../assets/images/vlog/9th.jpg";
+import zip10 from "../assets/images/vlog/10th.jpg";
+import zip11 from "../assets/images/vlog/11th.jpg";
+import zip12 from "../assets/images/vlog/12th.jpg";
+import zip13 from "../assets/images/vlog/13th.jpg";
+import zip14 from "../assets/images/vlog/14th.jpg";
+import zip15 from "../assets/images/vlog/15th.jpg";
+import zip16 from "../assets/images/vlog/16th.jpg";
+import zip17 from "../assets/images/vlog/17th.jpg";
+import zip18 from "../assets/images/vlog/18th.jpg";
 
 export default function Blog() {
   const containerRef = useRef(null);
@@ -28,13 +50,15 @@ export default function Blog() {
       desc: "An unforgettable ride through the Himalayas.",
       no: "Ep-01 to Ep-06",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPbtkjl8wsEo2jl-9Ipt3Y1Z",
+      zigzag: [zip2,zip1,  zip3],
     },
     {
       img: img2,
       title: "📍SOUTH INDIA RIDE",
-      desc: "Paradise of kerala.",
+      desc: "Paradise of Kerala.",
       no: "Ep-01 to Ep-07",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPZ3yMN5bxO-25U-KjrPxP30",
+      zigzag: [zip4, zip5, zip6],
     },
     {
       img: img3,
@@ -42,6 +66,7 @@ export default function Blog() {
       desc: "The Land of Dawn-Lit Mountains",
       no: "Ep-01 to Ep-21",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPa9RqDiywC9op3Kx2JJtd1B",
+      zigzag: [zip8,zip7,  zip9],
     },
     {
       img: img4,
@@ -49,6 +74,7 @@ export default function Blog() {
       desc: "A Blend of Heritage and Nature.",
       no: "Ep-01 to Ep-09",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYisrKg5zeCCqJOrTQWaYr6",
+      zigzag: [zip10, zip11, zip12],
     },
     {
       img: img5,
@@ -56,6 +82,7 @@ export default function Blog() {
       desc: "The Hidden Gem of the Himalayas.",
       no: "Ep-01 to Ep-09",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYktZP3Pn1Ak-vla9oM1xha",
+      zigzag: [zip13, zip14, zip15],
     },
     {
       img: img6,
@@ -63,6 +90,7 @@ export default function Blog() {
       desc: "A high-altitude motorbike challenge.",
       no: "Ep-01 to Ep-08",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYrNmKS6MKTf-f-GCh7gj2M",
+      zigzag: [zip16, zip17, zip18],
     },
   ];
 
@@ -73,9 +101,7 @@ export default function Blog() {
     if (!isPaused.current) {
       scrollX.current += speed;
 
-      if (scrollX.current >= totalWidth) {
-        scrollX.current = 0;
-      }
+      if (scrollX.current >= totalWidth) scrollX.current = 0;
 
       const modScroll = scrollX.current % totalWidth;
       const nearSlide = Math.round(modScroll / slideWidth);
@@ -83,7 +109,7 @@ export default function Blog() {
 
       if (Math.abs(modScroll - boundary) < speed) {
         isPaused.current = true;
-        scrollX.current = scrollX.current - modScroll + boundary;
+        scrollX.current = boundary;
 
         setCurrentIndex(nearSlide % totalSlides);
 
@@ -135,18 +161,15 @@ export default function Blog() {
       isPaused.current = false;
       requestRef.current = requestAnimationFrame(animate);
     }
-
     return () => cancelAnimationFrame(requestRef.current);
   }, [isInView, slideWidth]);
 
+  const { zigzag } = slides[currentIndex];
+
   return (
-    <div
-      ref={sectionRef}
-      className="pb-10 mx-auto w-full bg-[#f6f6f6] text-[#1f1f1f]"
-    >
-      {/* Title */}
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-gray-700 to-gray-700 bg-clip-text">
+    <div ref={sectionRef} className=" mx-auto w-full bg-[#f6f6f6] text-[#1f1f1f]">
+      <div className="text-center mb-15">
+        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-gray-700 to-gray-700 bg-clip-text" id="Vlog">
           Latest Vlogs
         </h2>
         <p className="text-gray-500 mt-2 text-lg mb-5">
@@ -154,29 +177,16 @@ export default function Blog() {
         </p>
       </div>
 
-      {/* Slideshow + Info + Zigzag Images in Row */}
       <div className="flex flex-col md:flex-row justify-center items-start gap-10 mx-auto mt-10 max-w-7xl">
         {/* Slideshow */}
         <div
           ref={containerOuterRef}
           className="w-full md:w-[53vw] h-[45vh] overflow-hidden rounded-xl shadow-lg"
         >
-          <div
-            ref={containerRef}
-            className="flex"
-            style={{ width: "max-content", height: "100%" }}
-          >
+          <div ref={containerRef} className="flex" style={{ width: "max-content", height: "100%" }}>
             {[...slides, ...slides].map((slide, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0"
-                style={{ width: slideWidth, height: "100%" }}
-              >
-                <img
-                  src={slide.img}
-                  alt={`Slide ${i + 1}`}
-                  className="w-full h-full object-cover block"
-                />
+              <div key={i} className="flex-shrink-0" style={{ width: slideWidth, height: "100%" }}>
+                <img src={slide.img} alt={`Slide ${i + 1}`} className="w-full h-full object-cover block" />
               </div>
             ))}
           </div>
@@ -205,34 +215,15 @@ export default function Blog() {
         </div>
 
         {/* Zigzag Images */}
-        <div className="relative w-full md:w-[33%] h-[500px]">
+        <div className="relative w-full md:w-[35%] h-[500px] -mt-5 ">
           <div className="absolute top-0 left-0 w-[240px] h-[160px] shadow-lg rotate-[-2deg] overflow-hidden z-30">
-            <img
-              src="https://via.placeholder.com/240x160"
-              alt="Image 1"
-              className="w-full h-full object-cover"
-            />
+            <img src={zigzag[0]} alt="Zigzag 1" className="w-full h-full object-cover rounded-2xl" />
           </div>
           <div className="absolute top-[100px] right-0 w-[240px] h-[160px] shadow-xl rotate-[3deg] overflow-hidden z-20">
-            <img
-              src="https://via.placeholder.com/240x160"
-              alt="Image 2"
-              className="w-full h-full object-cover"
-            />
+            <img src={zigzag[1]} alt="Zigzag 2" className="w-full h-full object-cover rounded-2xl" />
           </div>
           <div className="absolute top-[200px] left-[10px] w-[240px] h-[160px] shadow-md rotate-[-1deg] overflow-hidden z-10">
-            <img
-              src="https://via.placeholder.com/240x160"
-              alt="Image 3"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute top-[300px] right-[10px] w-[240px] h-[160px] shadow-md rotate-[2deg] overflow-hidden z-10">
-            <img
-              src="https://via.placeholder.com/240x160"
-              alt="Image 4"
-              className="w-full h-full object-cover"
-            />
+            <img src={zigzag[2]} alt="Zigzag 3" className="w-full h-full object-cover rounded-2xl" />
           </div>
         </div>
       </div>

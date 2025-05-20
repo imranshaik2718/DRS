@@ -23,8 +23,8 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-4 flex items-center justify-between text-sm font-medium uppercase">
         <div className="hidden md:flex space-x-5">
           <a href="#" className=" hover:opacity-60">Home</a>
-          <a href="#" className=" hover:opacity-60">Vlogs</a>
-          <a href="#" className=" hover:opacity-60">Contact</a>
+          <a href="#Vlog" className=" hover:opacity-60">Vlogs</a>
+          <a href="#Contact" className=" hover:opacity-60">Contact</a>
         </div>
 
         <div className="text-xl tracking-widest hover:scale-102 duration-800 font-semibold">

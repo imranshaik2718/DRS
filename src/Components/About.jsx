@@ -106,7 +106,7 @@ function About() {
           </div>
         </div>
         
-        <section class="flex flex-wrap justify-center items-center text-center divide-x divide-gray-300 pt-11 pb-5  px-4">
+        <section class="flex flex-wrap justify-center items-center text-center divide-x divide-gray-300 pt-11 pb-5  px-4" >
           <div class="px-6">
             <h2 class="text-2xl font-bold text-black">Most Popular</h2>
             <p class="text-gray-600">Bike Vlogger</p>
@@ -125,7 +125,7 @@ function About() {
           </div>
           <div class="px-6">
             <h2 class="text-2xl font-bold text-black">Awards</h2>
-            <p class="text-gray-600">& Recognitions</p>
+            <p class="text-gray-600" id="Vlog">& Recognitions</p>
           </div>
         </section>
       </div>
