@@ -51,6 +51,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-06",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPbtkjl8wsEo2jl-9Ipt3Y1Z",
       zigzag: [zip2,zip1,  zip3],
+      Views:" Views : 308,238",
     },
     {
       img: img2,
@@ -59,6 +60,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-07",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPZ3yMN5bxO-25U-KjrPxP30",
       zigzag: [zip4, zip5, zip6],
+      Views : " Views: 881,208"
     },
     {
       img: img3,
@@ -67,6 +69,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-21",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPa9RqDiywC9op3Kx2JJtd1B",
       zigzag: [zip8,zip7,  zip9],
+      Views : "Views: 2,020,612"
     },
     {
       img: img4,
@@ -75,6 +78,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-09",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYisrKg5zeCCqJOrTQWaYr6",
       zigzag: [zip10, zip11, zip12],
+      Views : " Views: 663,514"
     },
     {
       img: img5,
@@ -83,6 +87,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-09",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYktZP3Pn1Ak-vla9oM1xha",
       zigzag: [zip13, zip14, zip15],
+      Views : " Views: 929,846"
     },
     {
       img: img6,
@@ -91,6 +96,7 @@ export default function Blog() {
       no: "Ep-01 to Ep-08",
       link: "https://www.youtube.com/playlist?list=PLIy74-6iwMPYrNmKS6MKTf-f-GCh7gj2M",
       zigzag: [zip16, zip17, zip18],
+      Views : " Views: 802,694"
     },
   ];
 
@@ -169,7 +175,7 @@ export default function Blog() {
   return (
     <div ref={sectionRef} className=" mx-auto w-full bg-[#f6f6f6] text-[#1f1f1f]">
       <div className="text-center mb-15">
-        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-gray-700 to-gray-700 bg-clip-text" id="Vlog">
+        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-gray-700 to-gray-700 bg-clip-text" >
           Latest Vlogs
         </h2>
         <p className="text-gray-500 mt-2 text-lg mb-5">
@@ -204,6 +210,9 @@ export default function Blog() {
           <p className="text-gray-600 text-base group-hover:text-gray-800 transition">
             {slides[currentIndex].no}
           </p>
+          <p className="text-gray-600 text-base group-hover:text-gray-800 transition">
+            {slides[currentIndex].Views}
+          </p>
           <a
             href={slides[currentIndex].link}
             className="inline-block mt-5 px-5 py-2 text-white bg-black rounded-full hover:bg-gray-800 transition duration-300"
@@ -215,14 +224,14 @@ export default function Blog() {
         </div>
 
         {/* Zigzag Images */}
-        <div className="relative w-full md:w-[35%] h-[500px] -mt-5 ">
-          <div className="absolute top-0 left-0 w-[240px] h-[160px] shadow-lg rotate-[-2deg] overflow-hidden z-30">
+        <div className="relative w-full md:w-[39%] h-[500px] -mt-5 ">
+          <div className="absolute top-0 left-0 w-[280px] h-[160px] shadow-lg rotate-[-2deg] overflow-hidden z-30">
             <img src={zigzag[0]} alt="Zigzag 1" className="w-full h-full object-cover rounded-2xl" />
           </div>
-          <div className="absolute top-[100px] right-0 w-[240px] h-[160px] shadow-xl rotate-[3deg] overflow-hidden z-20">
+          <div className="absolute top-[100px] right-0 w-[280px] h-[160px] shadow-xl rotate-[3deg] overflow-hidden z-20">
             <img src={zigzag[1]} alt="Zigzag 2" className="w-full h-full object-cover rounded-2xl" />
           </div>
-          <div className="absolute top-[200px] left-[10px] w-[240px] h-[160px] shadow-md rotate-[-1deg] overflow-hidden z-10">
+          <div className="absolute top-[200px] left-[10px] w-[280px] h-[160px] shadow-md rotate-[-1deg] overflow-hidden z-10">
             <img src={zigzag[2]} alt="Zigzag 3" className="w-full h-full object-cover rounded-2xl" />
           </div>
         </div>

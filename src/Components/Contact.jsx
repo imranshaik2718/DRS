@@ -2,14 +2,14 @@ import React from 'react'
 
 function Contact() {
   return (
-    <div>
-      <section class="bg-[#f6f6f6] text-black/60 pt-5">
+    <div className='bg-gray-900'>
+      <section class="bg-[#f6f6f6] text-black/60 pt-5 rounded-b-4xl" >
       <div>
           <a
             href="#"
             target="_blank"
             id='Contact'
-            class=" font-semibold flex items-center justify-center gap-2 text-[30px] border-gray-600 hover:text-gray-300 transition  my-5"
+            class=" font-semibold flex items-center justify-center gap-2 text-[30px] text-black/80 border-gray-600 hover:text-gray-300 transition  my-5"
           >
             Visit My Channel
             <svg

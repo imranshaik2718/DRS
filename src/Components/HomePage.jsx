@@ -6,6 +6,7 @@ import Blog from './Blog'
 import Tag from './Tag'
 import About from './About'
 import Contact from './Contact'
+import Footer from './Footer'
 
 
 
@@ -21,6 +22,7 @@ function HomePage() {
      {/* <Demo/> */}
      <Contact/>
           <Tag/>
+          <Footer/>
     </div>
   )
 }

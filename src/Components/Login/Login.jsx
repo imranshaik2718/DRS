@@ -1,7 +1,47 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showRecover, setShowRecover] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState({ error: "", success: "" });
+  const [recoverEmail, setRecoverEmail] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const matchedUser = users.find(
+      (user) =>
+        user.email === formData.email && user.password === formData.password
+    );
+
+    if (matchedUser) {
+      setMessage({ success: "Login successful!", error: "" });
+      localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+
+
+      navigate("/", { state: { userName: matchedUser.fullName || matchedUser.email } });
+    } else {
+      setMessage({ error: "Invalid email or password", success: "" });
+    }
+  };
+
+  const handleRecover = (e) => {
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const exists = users.some((user) => user.email === recoverEmail);
+
+    if (exists) {
+      setMessage({ success: "Password reset link sent!", error: "" });
+    } else {
+      setMessage({ error: "Email not found", success: "" });
+    }
+
+    setRecoverEmail("");
+  };
 
   return (
     <section className="py-16 px-4 flex justify-center bg-gray-50 min-h-screen items-center">
@@ -9,41 +49,58 @@ const Login = () => {
         {!showRecover ? (
           <div className="space-y-6">
             <div className="space-y-2">
-              <h1 className="text-2xl  font-extralight  ">Login</h1>
+              <h1 className="text-2xl font-extralight">Login</h1>
               <p className="text-gray-600 text-sm">
                 Enter your email and password to login:
               </p>
             </div>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleLogin}>
               <div className="relative">
-                <h1 className="ml-1 text-gray-800">Email </h1>
+                <h1 className="ml-1 text-gray-800">Email</h1>
                 <input
                   type="email"
+                  name="email"
                   required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="E-mail"
                   className="w-full border border-gray-300 rounded px-3 pt-2 pb-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </div>
               <div className="relative">
-                <h1 className="ml-1 text-gray-800">Password </h1>
+                <h1 className="ml-1 text-gray-800">Password</h1>
                 <input
                   type="password"
                   name="password"
                   required
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
                   placeholder="Password"
                   className="w-full border border-gray-300 rounded px-3 pt-4 pb-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
                 />
-
                 <div className="text-right mt-1">
                   <button
                     type="button"
-                    onClick={() => setShowRecover(true)}
+                    onClick={() => {
+                      setShowRecover(true);
+                      setMessage({ error: "", success: "" });
+                    }}
                     className="text-xs text-gray-400 hover:text-black"
                   >
                     Forgot your password?
                   </button>
                 </div>
               </div>
+              {message.error && (
+                <p className="text-sm text-red-600">{message.error}</p>
+              )}
+              {message.success && (
+                <p className="text-sm text-green-600">{message.success}</p>
+              )}
               <button
                 type="submit"
                 className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
@@ -52,7 +109,7 @@ const Login = () => {
               </button>
               <div className="text-center text-sm text-gray-600 mt-2">
                 Don't have an account?{" "}
-                <a href="/account/register" className="text-black underline">
+                <a href="/register" className="text-black underline">
                   Sign up
                 </a>
               </div>
@@ -66,17 +123,25 @@ const Login = () => {
                 Enter your email to recover your password:
               </p>
             </div>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleRecover}>
               <div className="relative">
-                <h1 className="ml-1 text-gray-800">Email </h1>
+                <h1 className="ml-1 text-gray-800">Email</h1>
                 <input
                   type="email"
                   name="email"
                   required
+                  value={recoverEmail}
+                  onChange={(e) => setRecoverEmail(e.target.value)}
                   placeholder="E-mail"
                   className="w-full border border-gray-300 rounded px-3 pt-2 pb-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </div>
+              {message.error && (
+                <p className="text-sm text-red-600">{message.error}</p>
+              )}
+              {message.success && (
+                <p className="text-sm text-green-600">{message.success}</p>
+              )}
               <button
                 type="submit"
                 className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
@@ -87,7 +152,10 @@ const Login = () => {
                 Remember your password?{" "}
                 <button
                   type="button"
-                  onClick={() => setShowRecover(false)}
+                  onClick={() => {
+                    setShowRecover(false);
+                    setMessage({ error: "", success: "" });
+                  }}
                   className="text-black underline"
                 >
                   Back to login
@@ -97,7 +165,6 @@ const Login = () => {
           </div>
         )}
       </div>
-
     </section>
   );
 };
