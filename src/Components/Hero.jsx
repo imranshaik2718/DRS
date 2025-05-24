@@ -40,7 +40,7 @@ function Hero() {
           <p className="text-xl ml-5 font-extralight animate-[slideDown_1.5s_ease-out]">--Deep Ranjan Sachan</p>
           
           <button className="text-xs border-2 p-3 ml-4 mt-4 rounded-2xl hover:opacity-70 cursor-pointer transition animate-[slideDown_1s_ease-out] duration-300">
-           <a href="/About"> About me</a>
+           <a href="#About"> About me</a>
           </button>
           
         </h1>

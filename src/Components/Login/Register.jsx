@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +14,8 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -26,7 +29,7 @@ const Register = () => {
     reader.onloadend = () => {
       setFormData((prev) => ({
         ...prev,
-        profilePic: reader.result, // base64 string
+        profilePic: reader.result,
       }));
     };
     if (file) reader.readAsDataURL(file);
@@ -65,6 +68,10 @@ const Register = () => {
       confirmPassword: "",
       profilePic: "",
     });
+
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
   };
 
   return (
@@ -76,57 +83,42 @@ const Register = () => {
         </div>
 
         <form onSubmit={handleRegister} className="space-y-4">
-          <div>
-            <label className="ml-1 text-gray-800">Full Name</label>
-            <input
-              type="text"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-              placeholder="Full Name"
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="ml-1 text-gray-800">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="E-mail"
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="ml-1 text-gray-800">Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="Password"
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="ml-1 text-gray-800">Confirm Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-              placeholder="Confirm Password"
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-            />
-          </div>
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+            placeholder="Full Name"
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            placeholder="Email"
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+          />
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            placeholder="Password"
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+          />
+          <input
+            type={showPassword ? "text" : "password"}
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+            placeholder="Confirm Password"
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+          />
 
           <div className="text-sm text-gray-600 flex items-center gap-2">
             <input
@@ -137,15 +129,12 @@ const Register = () => {
             <label htmlFor="show-password" className="cursor-pointer">Show Password</label>
           </div>
 
-          <div>
-            <label className="ml-1 text-gray-800">Profile Picture</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-black file:text-white hover:file:bg-gray-700"
-            />
-          </div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-black file:text-white hover:file:bg-gray-700"
+          />
 
           {error && <p className="text-sm text-red-600">{error}</p>}
           {success && <p className="text-sm text-green-600">{success}</p>}

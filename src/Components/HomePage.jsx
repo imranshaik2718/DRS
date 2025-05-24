@@ -7,6 +7,8 @@ import Tag from './Tag'
 import About from './About'
 import Contact from './Contact'
 import Footer from './Footer'
+import Advertisement from './Advertisement'
+// import Membership from './Membership'
 
 
 
@@ -18,8 +20,10 @@ function HomePage() {
       <Hero/>
       <Bike/>
       <About/>
+     {/* <Membership/> */}
       <Blog/>
      {/* <Demo/> */}
+          <Advertisement/>
      <Contact/>
           <Tag/>
           <Footer/>
@@ -28,3 +32,6 @@ function HomePage() {
 }
 
 export default HomePage
+
+
+

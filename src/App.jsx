@@ -1,12 +1,12 @@
 import React from "react";
 import HomePage from "./Components/HomePage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter   as Router, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import BMW from "./Components/Bike/BMW";
 import Store from "./Components/Login/Store";
 import Gallery from "./Components/Gallery";
 import Register from "./Components/Login/Register";
-// import About from "./Components/About";
+
 function App() {
   return (
     <div>

@@ -8,6 +8,7 @@ import img5 from "../assets/rowimg/5.jpg";
 import img6 from "../assets/rowimg/6.jpg";
 import img7 from "../assets/rowimg/7.jpg";
 import img8 from "../assets/rowimg/8.jpg";
+import Membership from "./Membership";
 function About() {
   return (
     <>
@@ -15,7 +16,7 @@ function About() {
         <section class="max-w-7xl mx-auto px-6 pt-20">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             <div>
-              <h1 class="text-4xl md:text-5xl font-serif font-semibold leading-snug mb-8">
+              <h1 class="text-4xl md:text-5xl font-serif font-semibold leading-snug mb-8" id="About">
                 Never just one thing, never just one place
               </h1>
               <div class="space-y-8 text-[1.05rem] leading-relaxed font-light">
@@ -65,48 +66,48 @@ function About() {
             {/* <!-- Replace src with your image URLs --> */}
             <img
               src={img1}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover "
               alt="Image 1"
             />
             <img
               src={img2}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 2"
             />
             <img
               src={img3}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 3"
             />
             <img
               src={img5}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 4"
             />
             <img
               src={img4}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 5"
             />
             <img
               src={img6}
-              class="w-full h-auto object-cover rounded-2xl"
+              class="w-full h-auto object-cover "
               alt="Image 6"
             />
             <img
               src={img7}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 7"
             />
             <img
               src={img8}
-              class="w-full h-auto object-cover  rounded-2xl"
+              class="w-full h-auto object-cover  "
               alt="Image 8"
             />
           </div>
         </div>
-        
-        <section class="flex flex-wrap justify-center items-center text-center divide-x divide-gray-300 pt-11 pb-5  px-4" >
+        <Membership/>
+        <section class="flex flex-wrap justify-center items-center text-center divide-x divide-gray-300 pt-6 pb-5  px-4" >
           <div class="px-6">
             <h2 class="text-2xl font-bold text-black">Most Popular</h2>
             <p class="text-gray-600">Bike Vlogger</p>
