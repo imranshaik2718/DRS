@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ad from "../assets/Products/02-pdp-h12b-gallery-1920.webp";
-import { Megaphone } from "lucide-react";
 const Advertisement = () => {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -54,26 +53,6 @@ const Advertisement = () => {
           </div>
         </div>
 
-<div className="bg-gradient-to-l from-gray-600 via-green-600 to-yellow-600 text-white py-6 px-4 rounded-2xl shadow-xl animate-fadeIn max-w-4xl mx-auto mt-8">
-      <div className="flex items-center gap-4">
-        <div className="bg-white p-3 rounded-full shadow-md">
-          <Megaphone className="text-indigo-600 w-6 h-6" />
-        </div>
-        <div className="flex-1">
-          <h2 className="text-xl font-bold mb-1 tracking-tight">🚀 Announcement!</h2>
-          <p className="text-sm sm:text-base">
-            We're excited to launch our newest feature set! Check out the all-new dashboard, real-time analytics,
-            and enhanced security tools available now.
-          </p>
-        </div>
-        <a
-          href="/announcement-details"
-          className="bg-white text-indigo-600 hover:bg-gray-100 transition px-4 py-2 rounded-xl text-sm font-semibold shadow-md"
-        >
-          Learn More
-        </a>
-      </div>
-    </div>
 
       </div>
 

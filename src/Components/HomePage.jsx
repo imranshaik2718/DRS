@@ -23,7 +23,6 @@ function HomePage() {
       <About/>
      {/* <Membership/> */}
       <Blog/>
-     {/* <Demo/> */}
           <Advertisement/>
      <Contact/>
           <Tag/>

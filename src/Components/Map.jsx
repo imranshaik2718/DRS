@@ -1,8 +1,37 @@
 import React from 'react'
-
+import { motion } from "framer-motion";
 function Map() {
   return (
-    <div >
+    <>
+     <div className="min-h-screen bg-white text-black px-6 md:px-24 pt-5 flex flex-col space-y-20">
+
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-center max-w-3xl mx-auto"
+      >
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-800 via-green-600 to-gray-900 leading-tight">Journey Highlights</h2>
+        <p className="mt-4 text-gray-600 text-lg">
+          “Every state I visit becomes a story — from Ladakh’s silence to Assam’s rain. This map isn't just about geography, it's about moments.”
+        </p>
+        
+      </motion.div>
+
+      {/* Map and Side Details */}
+      <div className="flex flex-col md:flex-row gap-16 items-start">
+        {/* SVG MAP PLACEHOLDER */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-3/3"
+        >
+          <div className="">
+            {/* Insert SVG Here */}
+            <div className="aspect-video flex items-center justify-center text-gray-400 text-sm italic">
+              <div >
       <svg
         xmlns:mapsvg="http://mapsvg.com"
         xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -251,6 +280,59 @@ function Map() {
         />
       </svg>
     </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Stats and Description */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-1/3 space-y-8"
+        >
+          
+
+          <div className="border-l-4 pl-4 border-yellow-500">
+            <h2 className="text-xl font-semibold text-gray-800">Upcoming Adventures</h2>
+            <ul className="list-disc list-inside mt-2 text-gray-600">
+              <li>Sikkim's winding mountain roads</li>
+              <li>Odisha’s coastal charm</li>
+              <li>Meghalaya’s waterfalls</li>
+              <li>Andhra’s rich temples</li>
+            </ul>
+          </div>
+
+          <div className="flex gap-4">
+  <div className="w-10 h-10 rounded-2xl bg-gray-800 cursor-pointer shadow-md hover:scale-110 transition"></div><span>Visited</span>
+  <div className="w-10 h-10 rounded-2xl bg-gray-400 cursor-pointer shadow-md hover:scale-110 transition"></div><span>To be Visited</span>
+</div>
+
+
+          <div className="text-sm text-gray-500 pt-4">
+            Last updated: <span className="text-gray-700 font-medium">May 2025</span>
+          </div>
+        </motion.div>
+        
+      </div>
+
+      {/* Journey Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="max-w-4xl mx-auto text-center"
+      >
+        
+      </motion.div>
+
+      {/* Footer */}
+      <div className="text-center text-sm text-gray-400 pt-10 border-t border-gray-100">
+        © 2025 Deep Ranjan Sachin. All rights reserved.
+      </div>
+    </div>
+    
+    </>
   )
 }
 

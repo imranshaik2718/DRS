@@ -31,7 +31,7 @@ function Bike() {
     {
       img: BMW,
       title: "BMW F 850 GSA",
-      link: "/BMW",
+      link: "#",
     },
     {
       img: Honda,
