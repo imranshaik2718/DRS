@@ -2,7 +2,7 @@ import React from 'react'
 
 function Contact() {
   return (
-    <div className='bg-gray-900'>
+    <div className='bg-black'>
       <section class="bg-[#f6f6f6] text-black/60 pt-5 rounded-b-4xl" >
       <div>
           <a
@@ -56,6 +56,10 @@ function Contact() {
     </div>
   </div>
 </section>
+
+
+
+
     </div>
     
   )

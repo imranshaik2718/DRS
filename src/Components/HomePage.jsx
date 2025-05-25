@@ -9,6 +9,7 @@ import Contact from './Contact'
 import Footer from './Footer'
 import Advertisement from './Advertisement'
 // import Membership from './Membership'
+// import Map from './Map'
 
 
 
@@ -26,6 +27,7 @@ function HomePage() {
           <Advertisement/>
      <Contact/>
           <Tag/>
+          {/* <Map/> */}
           <Footer/>
     </div>
   )

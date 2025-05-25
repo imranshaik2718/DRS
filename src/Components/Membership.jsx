@@ -58,7 +58,7 @@ export default function Membership() {
               autoPlay
               playsInline
               muted={false}
-              controls={false}
+              
             >
               <source src={vid} type="video/mp4" />
               Your browser does not support the video tag.

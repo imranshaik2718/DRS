@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 
 // Images
-import latest1 from "../assets/images/vlog/latest1.jpg";
-import latest2 from "../assets/images/vlog/latest2.jpg";
-import latest4 from "../assets/images/vlog/latest4.jpg";
+import L1 from "../assets/images/vlog/L1.jpg";
+import L2 from "../assets/images/vlog/L2.jpg";
+import L3 from "../assets/images/vlog/L3.jpg";
+import L4 from "../assets/images/vlog/L4.jpg";
+import L5 from "../assets/images/vlog/L5.jpg";
+import L6 from "../assets/images/vlog/L6.jpg";
+import L7 from "../assets/images/vlog/L7.jpg";
+import L8 from "../assets/images/vlog/L8.jpg";
 import latest8 from "../assets/images/vlog/latest3.jpg";
 import img1 from "../assets/images/img1.jpg";
 import img2 from "../assets/images/img2.jpg";
@@ -33,96 +38,144 @@ import zip18 from "../assets/images/vlog/18th.jpg";
 const allVideos = {
   latest: [
     {
-        title: "Srinagar To Delhi Non Stop Ride Me Halat Kharab Ho Gyi In Heavy Rain...",
-        views: "10K views",
-        time: "7 hours ago",
-        thumbnail: latest1,
-        duration: "18:51",
-        url: "https://www.youtube.com/watch?v=fe45urDsKjA",
-      },
-      {
-        title: "Adventure Gone Wrong | 300 KG Bike Stuck in Deep Mud | Ep-06...",
-        views: "29K views",
-        time: "5 days ago",
-        thumbnail: latest2,
-        duration: "24:03",
-        url: "https://www.youtube.com/watch?v=uGkGoke3ACU&t=2s",
-      },
-      {
-        title: "Believe It or Not - This Place Is In India | Doodhpathri | Ep-05 Spring...",
-        views: "44K views",
-        time: "7 days ago",
-        thumbnail: zip3,
-        duration: "20:25",
-        url: "https://www.youtube.com/watch?v=kG_W4xiJoKY",
-      },
-      {
-        title: "Emergency Warning Milte Hi Gurez Se Nikalna Pad gya | Ep-04 Gurez ...",
-        views: "40K views",
-        time: "9 days ago",
-        thumbnail: latest4,
-        duration: "23:56",
-        url: "https://www.youtube.com/watch?v=BaCyDzmYobg&t=95s",
-      },
-      {
-        title: "Gurez Valley- This Place Near POK has been Banned By Govt of India |",
-        views: "46K views",
-        time: "12 days ago",
-        thumbnail: zip2,
-        duration: "21:39",
-        url: "https://www.youtube.com/watch?v=9AZBE6UZCnk&t=41s",
-      },
-      {
-        title: "Unbelievable - This is Real Kashmir | Srinagar To Astanmarg | Fakir Gujr...",
-        views: "67K views",
-        time: "2 weeks ago",
-        thumbnail: zip1,
-        duration: "19:37",
-        url: "https://www.youtube.com/watch?v=aFlXnn5nhC8",
-      },
-      {
-        title: "Spring Kashmir Ride Begins | Ep-01 Delhi To Srinagar | Why It's...",
-        views: "90K views",
-        time: "2 weeks ago",
-        thumbnail: img1,
-        duration: "26:05",
-        url: "https://www.youtube.com/watch?v=1_rFMMQcaVE&t=1278s",
-      },
-      {
-        title: "Our Kashmir Ride Update After Pahalgam Terrorist Attacks |",
-        views: "56K views",
-        time: "4 weeks ago",
-        thumbnail: latest8,
-        duration: "6:23",
-        url: "https://www.youtube.com/watch?v=rFg7FkPLqBg&t=79s",
-      },
+      title: "DELHI TO LEH NON STOP 1300 KMS IN 30 HRS | EP-01| DELHI-LEH..",
+      views: "2.4M views",
+      time: "1 year ago",
+      thumbnail: L1,
+      duration: "39:34",
+      url: "https://youtu.be/VjDQykd0fU8?si=xsvuhG7DIcl6DXhe",
+    },
+    {
+      title: "DELHI TO PUNE 1500 KMS NON STOP IN 27 HRS ...",
+      views: "1.8M views",
+      time: "2 years ago",
+      thumbnail: L2,
+      duration: "31:21",
+      url: "https://youtu.be/XUEOGkWgnfI?si=HrbYurWKMFN2192h",
+    },
+    {
+      title: "DELHI TO KOLKATA 1600 KMS NON STOP IN 30 HRS...",
+      views: " 1.5M views",
+      time: "2 years ago",
+      thumbnail: L3,
+      duration: "36:21",
+      url: "https://youtu.be/bc-UXuYaXaw?si=DWdSusXIQMWnjVhP",
+    },
+    {
+      title: "Delhi to Manali in Just 11 Hours at -7°C | Solo Ride |...",
+      views: " 1.M views",
+      time: "2 years ago",
+      thumbnail: L4,
+      duration: "28:42",
+      url: "https://youtu.be/QJnZ6GbMjSc?si=SoXh1v8r5vOBDaYc",
+    },
+    {
+      title: "DELHI TO KATHMANDU NEPAL IN JUST 22 HRS IN HEAVY RAIN 🔥 |...",
+      views: "1.M views",
+      time: "1 years ago",
+      thumbnail: L5,
+      duration: "39:17",
+      url: "https://youtu.be/qOc7b7VvtiE?si=IBe70_JkPonfB4AU",
+    },
+    {
+      title: "LADAKH RIDE 2021| Khardungla pass pe bike dead...",
+      views: "771K views",
+      time: "3 years ago",
+      thumbnail: L6,
+      duration: "25:36",
+      url: "https://youtu.be/Fb5ORYtItK0?si=z8DCSYGJgGlXsY5h",
+    },
+    {
+      title: "Khardungla Pass pe Snowfall ne Halat kharab Kar Di...",
+      views: "665K views",
+      time: "1 years ago",
+      thumbnail: L7,
+      duration: "24:09",
+      url: "https://youtu.be/bGOL4nE5ByA?si=Zfe67X5EvA7dYJZC",
+    },
+    {
+      title: "New RE Hunter 350 Vs Honda CB350 RS...",
+      views: "582K views",
+      time: "2 years ago",
+      thumbnail: L8,
+      duration: "16:33",
+      url: "https://youtu.be/gVkOus8hOCQ?si=-zEW1jAFGlbJ0Ihj",
+    },
   ],
   popular: [
     {
-      title: "Believe It or Not - Doodhpathri | Ep-05...",
-      views: "44K views",
-      time: "7 days ago",
-      thumbnail: zip3,
-      duration: "20:25",
-      url: "https://www.youtube.com/watch?v=kG_W4xiJoKY",
+      title: "DELHI TO LEH NON STOP 1300 KMS IN 30 HRS | EP-01| DELHI-LEH..",
+      views: "2.4M views",
+      time: "1 year ago",
+      thumbnail: L1,
+      duration: "39:34",
+      url: "https://youtu.be/VjDQykd0fU8?si=xsvuhG7DIcl6DXhe",
     },
     {
-      title: "Unbelievable - Real Kashmir...",
-      views: "67K views",
-      time: "2 weeks ago",
-      thumbnail: zip1,
-      duration: "19:37",
-      url: "https://www.youtube.com/watch?v=aFlXnn5nhC8",
+      title: "DELHI TO PUNE 1500 KMS NON STOP IN 27 HRS ...",
+      views: "1.8M views",
+      time: "2 years ago",
+      thumbnail: L2,
+      duration: "31:21",
+      url: "https://youtu.be/XUEOGkWgnfI?si=HrbYurWKMFN2192h",
+    },
+    {
+      title: "DELHI TO KOLKATA 1600 KMS NON STOP IN 30 HRS...",
+      views: " 1.5M views",
+      time: "2 years ago",
+      thumbnail: L3,
+      duration: "36:21",
+      url: "https://youtu.be/bc-UXuYaXaw?si=DWdSusXIQMWnjVhP",
+    },
+    {
+      title: "Delhi to Manali in Just 11 Hours at -7°C | Solo Ride |...",
+      views: " 1.M views",
+      time: "2 years ago",
+      thumbnail: L4,
+      duration: "28:42",
+      url: "https://youtu.be/QJnZ6GbMjSc?si=SoXh1v8r5vOBDaYc",
+    },
+    {
+      title: "DELHI TO KATHMANDU NEPAL IN JUST 22 HRS IN HEAVY RAIN 🔥 |...",
+      views: "1.M views",
+      time: "1 years ago",
+      thumbnail: L5,
+      duration: "39:17",
+      url: "https://youtu.be/qOc7b7VvtiE?si=IBe70_JkPonfB4AU",
+    },
+    {
+      title: "LADAKH RIDE 2021| Khardungla pass pe bike dead...",
+      views: "771K views",
+      time: "3 years ago",
+      thumbnail: L6,
+      duration: "25:36",
+      url: "https://youtu.be/Fb5ORYtItK0?si=z8DCSYGJgGlXsY5h",
+    },
+    {
+      title: "Khardungla Pass pe Snowfall ne Halat kharab Kar Di...",
+      views: "665K views",
+      time: "1 years ago",
+      thumbnail: L7,
+      duration: "24:09",
+      url: "https://youtu.be/bGOL4nE5ByA?si=Zfe67X5EvA7dYJZC",
+    },
+    {
+      title: "New RE Hunter 350 Vs Honda CB350 RS...",
+      views: "582K views",
+      time: "2 years ago",
+      thumbnail: L8,
+      duration: "16:33",
+      url: "https://youtu.be/gVkOus8hOCQ?si=-zEW1jAFGlbJ0Ihj",
     },
   ],
   oldest: [
     {
-      title: "Spring Kashmir Ride Begins | Ep-01...",
-      views: "90K views",
-      time: "2 weeks ago",
-      thumbnail: img1,
-      duration: "26:05",
-      url: "https://www.youtube.com/watch?v=1_rFMMQcaVE&t=1278s",
+      title: "DELHI TO LEH NON STOP 1300 KMS IN 30 HRS | EP-01| DELHI-LEH..",
+      views: "2.4M views",
+      time: "1 year ago",
+      thumbnail: zip3,
+      duration: "20:25",
+      url: "https://www.youtube.com/watch?v=kG_W4xiJoKY",
     },
     {
       title: "Update After Pahalgam Attack...",
@@ -191,6 +244,8 @@ const slides = [
     views: "Views: 802,694",
   },
 ];
+
+
 
 export default function Blog() {
   const containerRef = useRef(null);
@@ -325,7 +380,7 @@ export default function Blog() {
       {/* YouTube Clone Section */}
       <div className="text-white p-4 -mt-25">
         <div className="flex justify-start gap-4 mb-6 mx-25">
-          {["latest", "popular", "oldest"].map((f) => (
+          {["popular" ].map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -352,7 +407,7 @@ export default function Blog() {
                 <h3 className="text-base font-semibold">{video.title}</h3>
                 <p className="text-sm text-gray-600">{video.views} • {video.time}</p>
               </div>
-              <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">
+              <span className="absolute bottom-21  right-2 bg-black/40 text-white text-xs px-2 py-0.5 rounded">
                 {video.duration}
               </span>
             </a>
