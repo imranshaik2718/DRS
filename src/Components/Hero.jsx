@@ -67,7 +67,7 @@ function Hero() {
         </li>
         <li className=" hover:text-white animate-[slideDown_1.5s_ease-out]">
           <a
-            href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNxNNCwTwcQTKwVwBhgSgksNqHtWMMHqCZpGtfvcrslsGpqmntdfjZVNPQSxtnbLWgfwzg"
+            href="mailto:deepranjan19@gmail.com"
             target="_blank"
           >
             <svg

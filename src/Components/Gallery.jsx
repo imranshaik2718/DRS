@@ -31,6 +31,8 @@ import img28 from "../assets/images/Gallery/img28.jpg";
 import img29 from "../assets/images/Gallery/img29.jpg";
 import img30 from "../assets/images/Gallery/img30.jpg";
 import img31 from "../assets/images/Gallery/img31.jpg";
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 export default function Gallery() {
   const items = [
@@ -68,8 +70,10 @@ export default function Gallery() {
   ];
 
   return (
+    <>
+    <Nav/>
     <motion.div
-      className="bg-black min-h-screen px-4 py-10 pb-20"
+      className=" min-h-screen px-4 py-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -82,7 +86,7 @@ export default function Gallery() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="text-5xl font-extrabold text-white mb-4 tracking-wide"
+          className="text-5xl font-extrabold text-gray-500 mb-4 tracking-wide"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -91,7 +95,7 @@ export default function Gallery() {
         </motion.h2>
 
         <motion.p
-          className="text-gray-400 text-lg max-w-2xl mx-auto"
+          className="text-gray-500 text-lg max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -131,5 +135,7 @@ export default function Gallery() {
         ))}
       </motion.div>
     </motion.div>
+    <Footer/>
+    </>
   );
 }
