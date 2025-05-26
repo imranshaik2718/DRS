@@ -12,7 +12,7 @@ function Map() {
         transition={{ duration: 1 }}
         className="text-center max-w-3xl mx-auto"
       >
-        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-800 via-green-600 to-gray-900 leading-tight">Journey Highlights</h2>
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight   leading-tight">Journey Highlights</h2>
         <p className="mt-4 text-gray-600 text-lg">
           “Every state I visit becomes a story — from Ladakh’s silence to Assam’s rain. This map isn't just about geography, it's about moments.”
         </p>
@@ -326,10 +326,6 @@ function Map() {
         
       </motion.div>
 
-      {/* Footer */}
-      <div className="text-center text-sm text-gray-400 pt-10 border-t border-gray-100">
-        © 2025 Deep Ranjan Sachin. All rights reserved.
-      </div>
     </div>
     
     </>

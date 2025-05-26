@@ -44,7 +44,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${scrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white"}`}>
+    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${scrolled ? "bg-white  text-black shadow-md" : "bg-transparent text-white"}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-4 flex items-center justify-between text-sm font-medium uppercase">
         <div className="hidden md:flex space-x-5">
           <a href="#" className="hover:opacity-60">Home</a>
@@ -52,9 +52,36 @@ const Navbar = () => {
           <a href="#Contact" className="hover:opacity-60">Contact</a>
         </div>
 
-        <div className="text-xl tracking-widest hover:scale-102 duration-800 font-semibold">
-          <Link to="/">DRS</Link>
-        </div>
+       <div className={`text-xl tracking-widest font-semibold group cursor-pointer transition-all ${
+  scrolled ? "hover:text-black" : "hover:text-white/60"
+}`}>
+  <Link to="/" className={`flex items-center hover:gap-5 hover:duration-500 ${
+  scrolled ? "text-black" : "text-white"
+}`}>
+
+    <div className="flex items-center">
+      <span className="transform transition-all duration-500 group-hover:translate-x-1">D</span>
+      <span className="overflow-hidden transition-all duration-500 lowercase  max-w-0 group-hover:max-w-[80px] group-hover:ml-1">
+        eep
+      </span>
+    </div>
+    <div className="flex items-center">
+      <span>R</span>
+      <span className="overflow-hidden transition-all duration-500 lowercase  max-w-0 group-hover:max-w-[80px] group-hover:ml-1">
+        anjan
+      </span>
+    </div>
+    <div className="flex items-center">
+      <span className="transform transition-all duration-500 group-hover:translate-x-1">S</span>
+      <span className="overflow-hidden transition-all duration-500 lowercase  max-w-0 group-hover:max-w-[80px] group-hover:ml-1">
+        achin
+      </span>
+    </div>
+  </Link>
+</div>
+
+
+
 
         <div className="flex space-x-6 items-center">
           <Link to="/Gallery" className="hover:opacity-60">Gallery</Link>

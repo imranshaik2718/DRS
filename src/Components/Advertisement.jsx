@@ -46,6 +46,7 @@ const Advertisement = () => {
                 onClick={() => setIsVisible(false)}
                 className="absolute top-2 right-2 text-white text-xl bg-black bg-opacity-50 rounded-full w-6 h-6 flex items-center justify-center"
                 aria-label="Close advertisement"
+                
               >
                 &times;
               </button>

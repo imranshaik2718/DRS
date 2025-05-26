@@ -326,6 +326,20 @@ export default function Blog() {
   const { zigzag } = slides[currentIndex];
   const filteredVideos = allVideos[filter];
 
+  const goToSlide = (index) => {
+  isPaused.current = true;
+  scrollX.current = index * slideWidth;
+  setCurrentIndex(index % totalSlides);
+  if (containerRef.current) {
+    containerRef.current.style.transform = `translateX(-${scrollX.current}px)`;
+  }
+  setTimeout(() => {
+    isPaused.current = false;
+    requestRef.current = requestAnimationFrame(animate);
+  }, pauseDuration);
+};
+
+
   return (
     <div ref={sectionRef} className="mx-auto w-full bg-[#f6f6f6] text-[#1f1f1f]">
       {/* Slide Section */}
@@ -338,14 +352,40 @@ export default function Blog() {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-start gap-10 mx-auto mt-10 max-w-7xl">
-        <div ref={containerOuterRef} className="w-full md:w-[53vw] h-[45vh] overflow-hidden rounded-xl shadow-lg">
-          <div ref={containerRef} className="flex" style={{ width: "max-content", height: "100%" }}>
-            {[...slides, ...slides].map((slide, i) => (
-              <div key={i} className="flex-shrink-0" style={{ width: slideWidth, height: "100%" }}>
-                <img src={slide.img} alt={`Slide ${i + 1}`} className="w-full h-full object-cover block" />
-              </div>
-            ))}
-          </div>
+        <div className="relative w-full md:w-[53vw] h-[45vh] overflow-hidden rounded-xl shadow-lg" ref={containerOuterRef}>
+          <div
+    ref={containerRef}
+    className="flex"
+    style={{ width: "max-content", height: "100%" }}
+  >
+    {[...slides, ...slides].map((slide, i) => (
+      <div
+        key={i}
+        className="flex-shrink-0"
+        style={{ width: slideWidth, height: "100%" }}
+      >
+        <img
+          src={slide.img}
+          alt={`Slide ${i + 1}`}
+          className="w-full h-full object-cover block"
+        />
+      </div>
+    ))}
+  </div>
+
+  {/* Navigation buttons */}
+  <button
+    onClick={() => goToSlide((currentIndex - 1 + totalSlides) % totalSlides)}
+    className="absolute top-1/2 left-0 transform -translate-y-1/2   text-white/40 hover:text-white  rounded-full p-2 z-10"
+  >
+    ◀
+  </button>
+  <button
+    onClick={() => goToSlide((currentIndex + 1) % totalSlides)}
+    className="absolute top-1/2 right-0 transform -translate-y-1/2   text-white/40 hover:text-white rounded-full p-2 z-10"
+  >
+    ▶
+  </button>
         </div>
 
         <div className="w-full md:w-[33%] text-left space-y-3">

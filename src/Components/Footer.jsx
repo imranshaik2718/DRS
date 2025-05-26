@@ -1,18 +1,43 @@
 import { FaYoutube, FaInstagram, FaTwitter, FaDiscord } from 'react-icons/fa';
 import { HiOutlineMail } from "react-icons/hi";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 export default function Footer() {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const variants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 2, ease: "easeOut" } },
+  };
+
   return (
     <footer className="bg-black text-white py-10 px-4 flex flex-col items-center space-y-6 text-sm">
-      {/* Logo */}
-      <div>
-         <DotLottieReact
-      src="https://lottie.host/3f611734-cc3b-4e43-9fce-40d5f13daf6b/vHSzNcaVbN.lottie"
-      loop
-      autoplay
-      className='w-[300px]'
-    />
-      </div>
+      
+      {/* Animate the logo container */}
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={variants}
+        className="w-[200px]"
+      >
+        <DotLottieReact
+          src="https://lottie.host/32b8cc8f-6e91-47bd-bc0b-00fe88a07311/v1hdishb3S.lottie"
+          loop
+          autoplay
+          className="w-full"
+        />
+      </motion.div>
 
       {/* Social Icons */}
       <div className="flex space-x-6 text-xl">

@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import vid from "../assets/Video/Membership.mp4";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 export default function Membership() {
   const [showVideo, setShowVideo] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -14,58 +16,70 @@ export default function Membership() {
     }
   }, [showVideo]);
 
+  const handleVideoClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <div className="mx-auto overflow-hidden bg-[#f6f6f6] text-[#1f1f1f] mt-2 relative pb-3">
       <div className="flex items-center justify-center">
-        
-            
         {!showVideo && (
-            <div className="flex">
-                
-          <button
-            onClick={() => setShowVideo(true)}
-            className="font-semibold gap-2 cursor-pointer text-[20px] group flex items-center justify-center text-yellow-600 border-gray-600 hover:text-gray-300 transition "
-          >
-            Membership
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="flex">
+            <button
+              onClick={() => setShowVideo(true)}
+              className="font-semibold gap-2 cursor-pointer text-[20px] group flex items-center justify-center text-yellow-600 border-gray-600 hover:text-gray-300 transition"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m5-5h5v5m-11 11L21 3"
-              />
-            </svg>
-            
-          </button>
+              Membership
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m5-5h5v5m-11 11L21 3"
+                />
+              </svg>
+            </button>
           </div>
         )}
-        
       </div>
 
-      {/* Full content shown only after button click */}
       {showVideo && (
-        <div className="w-full  px-10 text-black rounded-lg overflow-hidden py-20 flex justify-center items-center gap-10 mx-auto">
-          <div className="w-full md:w-1/2">
+        <div className="w-full px-10 text-black rounded-lg overflow-hidden py-20 flex justify-center items-center gap-10 mx-auto">
+          <div className="w-full md:w-1/2 relative">
             <video
               ref={videoRef}
-              className="w-full h-full object-cover rounded-4xl"
+              className="w-full h-full object-cover rounded-4xl cursor-pointer"
               autoPlay
               playsInline
               muted={false}
-              
+              controls={false}
+              onClick={handleVideoClick}
             >
               <source src={vid} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            {/* Optional play/pause status */}
+            <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 text-sm rounded-full pointer-events-none">
+              {isPlaying ? "Pause" : "Play"}
+            </div>
           </div>
 
-          <div className="p-4  ">
+          <div className="p-4">
             <h2 className="text-xl font-semibold mb-2 flex">
               Mauj Pack{" "}
               <DotLottieReact
